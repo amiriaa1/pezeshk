@@ -19,18 +19,9 @@ echo'
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
     <meta name="description" content="'.$system_title.'">
-	<meta name="keywords" content="Buynex,Investment Systems,Capital stock,Private investment,Interest rate">
-<meta property="og:type" content="article" />
-<meta property="og:title" content="BUYNEX" />
-<meta property="og:description" content="Invest your money in the best solver problem"/>
-    <meta property="og:image" content="https://buynex.info/images/logo2.png" />
-    <meta property="og:url" content="https://buynex.info/" />
-    <meta property="og:site_name" content="Buynex" />
-    <meta name="og:region" content="cupertino" />
-    <meta name="og:country-name" content="California" />
-	<meta name="generator" content="royaal">';
+';
 		if(!isset($responsive) || $responsive==1)
 			
 		include('main.php');
@@ -50,7 +41,6 @@ if($system_settings["maintenance"]==1)
 	
 	
 
- <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="403477c5-f1d2-4a1c-8c74-5e971494a376";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
     
   </head>
 <body class="layout-top-nav light-skin theme-classic">
@@ -133,29 +123,13 @@ if($system_settings["maintenance"]==1)
 
 	  <!-- Sample menu definition -->
 	  <ul id="main-menu" class="sm sm-blue">
-		<li><a href="index"><i class="icon-Layout-4-blocks"><span class="path1"></span><span class="path2"></span></i>Dashboard</a></li>
+		<li><a href="index"><i class="icon-Layout-4-blocks"><span class="path1"></span><span class="path2"></span></i>داشبور</a></li>
+	
 		
-			<li><a href="deposit"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>deposit</a>
-				<li><a href="wallet"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Wallet</a></li>
-				<li><a href="deposit-List"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>deposit List</a></li>
-				<li><a href="transactions-List"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span> Transactions List</i></a></li>
+			<li><a href="centerpoint"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>ثبت  مرکز</a></li>
 				
-								
 				
-			
-		</li>
-		<li><a href="referral"><i class="icon-Chart-pie"><span class="path1"></span><span class="path2"></span></i>Referral</a>
-			
-		</li>
-		<li><a href="invest"><i class="icon-Repeat"><span class="path1"></span><span class="path2"></span></i>Invest</a></li> 
-		<li><a href="invest-list"><i class="icon-Repeat"><span class="path1"></span><span class="path2"></span></i>Invest list</a></li> 
-		 
-		<li><a href="withdraw"><i class="icon-Arrows-h"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>withdraw</a>
-			
-		</li>
 		
-			
-		</li>
 	
 		
 				
