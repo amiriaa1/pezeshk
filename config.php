@@ -1,20 +1,18 @@
 <?php
 $dbhost = 'localhost';
-$dbname = 'crypto';
-$dbuname = 'crtt';
-$dbpass = 'crtt';
+$dbname = 'pezeshk';
+$dbuname = 'pezeshk';
+$dbpass = 'pezeshk';
 $table_prefix = 'nim_';
 
-//T Information
-$testa_prefix = '';
-$testa_url = ''; //something like: http://test.t.ir OR http://panel.t.ir/test
 
-$admin_session_name = 'Royal_admin';
-$admin_password_session_name = 'Royal_admin_pass';
-$teacher_session_name = 'Royal_teacher';
-$teacher_password_session_name = 'Royal_admin_teacher';
-$user_session_name = 'Royal_user';
-$user_password_session_name = 'Royal_user_pass';
+
+$admin_session_name = 'Pezeshk_admin';
+$admin_password_session_name = 'Pezeshk_admin_pass';
+$teacher_session_name = 'Pezeshk_teacher';
+$teacher_password_session_name = 'Pezeshk_admin_teacher';
+$user_session_name = 'Pezeshk_user';
+$user_password_session_name = 'Pezeshk_user_pass';
 $session_numbers=16;
 $captcha = 0;
 $page_limit = 20;
