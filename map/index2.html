@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Neshan Map Example (Leaflet)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://static.neshan.org/sdk/leaflet/1.4.0/leaflet.css" rel="stylesheet" type="text/css">
+    <script src="https://static.neshan.org/sdk/leaflet/1.4.0/leaflet.js" type="text/javascript"></script>
+</head>
+<body>
+  
+<div id="map" style="width: 600px; height: 450px; background: #eee; border: 2px solid #aaa;"></div>
+  	<input type="text" id="vouch" name="vouch" value="2"><input type="text" id="vouch1" name="vouch1" value="1">
+<script type="text/javascript">
+    var map = new L.Map('map', {
+        key: 'web.557352077ed74289898568a7de7b1588',
+        maptype: 'osm-bright',
+        poi: true,
+        traffic: false,
+        center: [35.718240469043195,51.34226983881916],
+        zoom: 14
+    });
+
+var latlngs = [
+    [35.7766,51.37928],
+    [35.757936, 51.37104],
+    [35.74484, 51.213112]
+];
+
+var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+
+// zoom the map to the polyline
+map.fitBounds(polyline.getBounds());
+
+
+
+
+	const popup = L.popup()
+		.setLatLng([35.718240469043195,51.34226983881916])
+		.setContent('click and point the map')
+		.openOn(map);
+
+	function onMapClick(e) {
+		popup
+			.setLatLng(e.latlng)
+			.setContent(`You clicked the map at ${e.latlng.toString()}`)
+			.openOn(map);
+			const myArray = e.latlng.toString().split("(");
+			const myArray2 = myArray.toString().split(",");
+			const myArray3 = myArray2[2].split(")");
+			document.getElementById("vouch").value =myArray2[1];
+			document.getElementById("vouch1").value =myArray3[0];
+			
+	}
+
+	map.on('click', onMapClick);
+	
+	
+</script>
+</body>
+</html>

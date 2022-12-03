@@ -70,16 +70,15 @@ echo'
 	map.on("click", onMapClick);
 	
 	
+	
+
+	
 </script>
 			
 			
 			
 			
-			
-			
-			
-			
-			
+		
 			
 			
 			
@@ -95,16 +94,8 @@ echo'
 								<div class="form-group">
 								
 									<label for="1hashid">invest program :</label>
-									<select id="pid" name="pid" class="form-control select2 w-p100" >
-									
-									
-									
-										         
-	 <option id="pid" name="pid" value="1" selected="selected">1</option>
-										
-							
-						 
-						</select>
+<input type="text" name="addr" disabled="disabled" id="addr" class="form-control" required data-validation-required-message="This field is required">
+
 									</div>
 							</div>
 							
@@ -113,7 +104,7 @@ echo'
 								<h5>lat<span class="text-danger">*</span></h5>
 								<div class="controls">
 				
-				<input type="text" name="lat" id="lat" class="form-control" required data-validation-required-message="This field is required" min="1000">
+				<input type="text" name="lat" id="lat" disabled="disabled" class="form-control" required data-validation-required-message="This field is required">
 								</div>
 							</div>
 
@@ -126,12 +117,12 @@ echo'
 								<div class="form-group">
 								<h5>lng <span class="text-danger">*</span></h5>
 									<div class="controls">
-											<input type="text" name="lng" id="lng" class="form-control" required data-validation-required-message="This field is required" min="1000">
+											<input type="text" name="lng" disabled="disabled" id="lng" class="form-control" required data-validation-required-message="This field is required">
 
 										<br>
 										<div class="text-xs-right">
 										
-							<button type="submit" name="Submit" class="btn btn-rounded btn-info">Submit</button>
+							<button type="submit" class="btn btn-rounded btn-info" onclick="showStudentProp()">Submit</button>
 							
 							</form>
 						</div>
@@ -146,7 +137,7 @@ echo'
 						
 						
 
-
+<div name"sa-success" id="sa-success" class="alert alert-success" style="visibility:hidden;></div>
 ';
 
 

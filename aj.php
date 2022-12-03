@@ -1,90 +1,45 @@
 <?php
 
-if($_REQUEST['op']=="load_cities")
-	$login_needed=0;
-else
-	$login_needed=1;
 
 include_once('main.php');
 switch($_REQUEST['op'])
 {
 	
-		
-		
 	
-		case "withdraw":
-		
-	$uptrack_code= $_REQUEST['wallet'];
-	$uppayment= $_REQUEST['amount'];
-	$date= $_REQUEST['date'];
-	
-	
-	$upcomment='user withdraw';
-$wallet='20';	
-$fee = new ManageFees();
-$student = new ManageStudents();
-$studentInfo = $student->GetStudentInfo($uusername);	
-$uid=$studentInfo['uid'];
-$courseList = $fee->GetWallet($uid);
-foreach ($courseList as $courseStudentInfo)
-{$walletget=$courseStudentInfo['mainwallet'];}
-$sum=$walletget-$uppayment;
-	if($sum<=0){
-		
-		
-		
-		echo json_encode(array(
-				"statusCode"=>201,
-				"hashid"=>$uptrack_code,
-				"amount"=>$uppayment
-			));		
-		
-		
-	}else{
-		$counts = $fee->AddUserPaymentapp($studentInfo['uid'],$uppayment,0,$uptrack_code,$upcomment,$wallet,'0');
-		$fee->WalletUpdate($sum,$uid);
-		echo json_encode(array(
-				"statusCode"=>200,
-				"hashid"=>$uptrack_code,
-				"amount"=>$uppayment
-			));
-		
-	}
-
-
-		
-		
-		break;
-		
-		
-		
-		
-		
-		
-		break;
-		
 		case "vfr":
-	$uptrack_code= $_REQUEST['hashid'];
-	$uppayment= $_REQUEST['amount'];
-	$date= $_REQUEST['date'];
+	$lat= $_REQUEST['lat'];
+	$lng= $_REQUEST['lng'];
 	
 	
-	
-	
-	
-$upcomment='user deposit';
-$wallet='10';
-$fee = new ManageFees();
-$student = new ManageStudents();
-$studentInfo = $student->GetStudentInfo($uusername);
-$counts = $fee->AddUserPaymentapp($studentInfo['uid'],$uppayment,0,$uptrack_code,$upcomment,$wallet,'0');
+                                                                                                                    
+$ch = curl_init('https://api.neshan.org/v5/reverse?lat='.$lat.'&lng='.$lng.'');                                                                      
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET"); 
+                                                                                                                                    
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                   
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+	'User-Agent: PostmanRuntime/7.29.2', 
+	'Accept: */*',
+	'Content-Type: application/json',
+	'Api-Key: service.6468e3da2c1644318fc1a2afbd458ad5'
+	)                                                                     
+);                                                                                                                   
+                                                                                                                     
+$result = curl_exec($ch);
 
+curl_close($ch);
 
-		echo json_encode(array(
+var_dump(json_decode($result, true));
+
+$data2 = json_decode(trim($result), TRUE);
+
+$data2['formatted_address']
+		
+			echo json_encode(array(
 				"statusCode"=>200,
-				"hashid"=>$uptrack_code,
-				"amount"=>$uppayment
-			));
+				"formatted_address"=>$data2['formatted_address']
+			));	
+		
+		
 		
 		break;
 		
