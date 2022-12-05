@@ -11,6 +11,16 @@ function Addcustomers($name,$lat,$lng,$addres,$cutomerstype,$submitby)
  return $counts; }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+function Addgpspoint($username,$gps,$lat,$lng)
+ { global $table_prefix;
+ $query = $this->link->prepare("INSERT INTO `marketer_gps` (`ausername`,`gps`,`lat`,`lng`) VALUES (?,?,?,?) ");
+
+ $values = array($username,$gps,$lat,$lng);
+ $query->execute($values); $counts = $query->rowCount();
+ return $counts; }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 function GetcustomersList($query) { global $table_prefix;
  $query = $this->link->query("SELECT * FROM `nim_customers` $query");
