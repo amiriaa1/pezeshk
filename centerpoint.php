@@ -11,15 +11,6 @@ echo'
     <link href="https://static.neshan.org/sdk/leaflet/1.4.0/leaflet.css" rel="stylesheet" type="text/css">
     <script src="https://static.neshan.org/sdk/leaflet/1.4.0/leaflet.js" type="text/javascript"></script>
 
-<div class="col-12">
-<div class="box box-inverse bg-dark bg-hexagons-white">
-<div class="box-body">
-<div class="row">						
-<center><H2>for invest you need first deposit to wallet</H2></center>
-</div>
-</div>
-</div>
-</div>
 
 
 
@@ -72,36 +63,94 @@ echo'
 	
 	
 
-	
-</script>
-			
-			
-			
-			
-		
-			
-			
-			
-			
-			
+							function showStudentProp()
+							{
+								$("#show_back").html(\'<img src="images/wait.gif">\');
+								var addres = $("#addres").val();
+								var cutomerstype = $("#cutomerstype").val();
+								var lat = $("#lat").val();
+								var lng = $("#lng").val();
+								var name = $("#name").val();
+								var submitby = $("#submitby").val();
+								if(addres!=""){
+								$.ajax({
+								    url: "aj.php",
+								    type: "POST",
+								    data: {op:"vfr",addres:addres,cutomerstype:cutomerstype,lat:lat,lng:lng,name:name,submitby:submitby},
+									dataType: "json",
+								    success: function(data){
+							
+							if(data.statusCode==200){ 
+                                document.getElementById("sa-success").style.visibility = "visible";
+							$("#sa-success").html("مشتری با موفقیت ثبت شد");   		
+								
+								
+								
+								
+								
+								
+								}
+									
+                                else if(data.statusCode==201){
+									
+									
+									
+								document.getElementById("sa-success").style.visibility = "visible";
+								$("#sa-success").html("اطلاعات صحیح نیست");
+								
+								
+							}
+									
+									},
+									
+								    error: function(){$("#sa-success").html("Problem in Ajax")}
+								});
+								                           }
+														   else{
+			$("#show_back").html("اطلاعات خالی است");
+		}
+		                         
+								
+								
+							}
+							
+							
+						</script>	
+
 			<div class="box-body wizard-content">
-				<form  class="tab-wizard wizard-circle" action=""	method="post">
+			
 					<!-- Step 1 -->
-					<h6>The capital can be withdrawn after one year</h6>
+					
 					<section>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
 								
-									<label for="1hashid">invest program :</label>
-<input type="text" name="addr" disabled="disabled" id="addr" class="form-control" required data-validation-required-message="This field is required">
+									<label for="addres">ادرس</label>
+<input type="text" name="addres"  id="addres" class="form-control" required data-validation-required-message="This field is required">
 
 									</div>
 							</div>
 							
+							
 							<div class="col-md-6">
 								<div class="form-group">
-								<h5>lat<span class="text-danger">*</span></h5>
+								
+									<label for="cutomerstype">نوع مشتری</label>
+		<select  name="cutomerstype" id="cutomerstype"  class="form-control select2 w-p100" >
+						  <option selected="selected" name="cutomerstype" id="cutomerstype" value="1">0</option>
+						  <option selected="selected" name="cutomerstype" id="cutomerstype" value="2">1</option>
+						  
+						</select>
+
+									</div>
+							</div>
+							
+							
+							
+							<div class="col-md-6">
+								<div class="form-group">
+								<h5>طول جغرافیایی<span class="text-danger">*</span></h5>
 								<div class="controls">
 				
 				<input type="text" name="lat" id="lat" disabled="disabled" class="form-control" required data-validation-required-message="This field is required">
@@ -111,20 +160,32 @@ echo'
 							</div>
 						
 						
-					
+							<div class="col-md-6">
+								<div class="form-group">
+								<h5>نام<span class="text-danger">*</span></h5>
+								<div class="controls">
+				
+				<input type="text" name="name" id="name"  class="form-control" required data-validation-required-message="This field is required">
+								</div>
+							</div>
+
+							</div>
+						
+						
 						
 							<div class="col-md-6">
 								<div class="form-group">
-								<h5>lng <span class="text-danger">*</span></h5>
+								<h5>عرض جغرافیایی <span class="text-danger">*</span></h5>
 									<div class="controls">
 											<input type="text" name="lng" disabled="disabled" id="lng" class="form-control" required data-validation-required-message="This field is required">
+			<input type="hidden" name="submitby" id="submitby" value="'.$uusername.'" >
 
 										<br>
 										<div class="text-xs-right">
 										
-							<button type="submit" class="btn btn-rounded btn-info" onclick="showStudentProp()">Submit</button>
+							<button type="submit" class="btn btn-rounded btn-info" onclick="showStudentProp()">ثبت اطلاعات</button>
 							
-							</form>
+						
 						</div>
 				</div>
 							</div>

@@ -1,0 +1,8 @@
+$name=$_POST['name'];
+$lat=$_POST['lat'];
+$lng=$_POST['lng'];
+$type=$_POST['type'];
+$address=$_POST['address'];
+$username=$_POST['username'];
+$password=$_POST['password'];
+
