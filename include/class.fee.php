@@ -53,8 +53,28 @@ function GetcustomersList($query) { global $table_prefix;
  $counts = $query->rowCount(); $result = $query->fetchAll();
  return $result; }
  
- 
  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ function missionsupdate($status,$user,$id)
+ { global $table_prefix;
+ $query = $this->link->prepare("UPDATE `nim_missions` SET `status`=? , `promoter`=? WHERE `aid`=?"); 
+ $values = array($status,$user,$id); $query->execute($values); $counts = $query->rowCount(); return $counts; }
+
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ function Getmissionslistbyid($id) { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `nim_missions` WHERE `aid`=?");
+
+ $values = array($id);
+ $query->execute($values);
+ $counts = $query->rowCount();
+ if($counts==1) { $result = $query->fetchAll(); return $result; } 
+ else { return $counts; } } 
+
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ 
+ 
+ 
   function Getcustomerformission($idd) { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `".$table_prefix."customers` WHERE `aid`=?");
 
  $values = array($idd);
