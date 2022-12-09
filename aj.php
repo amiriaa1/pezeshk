@@ -34,5 +34,37 @@ if($userPayments==1){
 		
 		break;
 		
+		case "customeridtodet":
+		
+		
+		$idd= $_REQUEST['idd'];
+	$fee = new ManageFees();
+	
+	
+$disuserList = $fee->Getcustomerformission($idd);
+
+
+foreach($disuserList as $disuserProp)
+					{
+						$name=$disuserProp['name'];
+						$lat=$disuserProp['lat'];
+						$lng=$disuserProp['lng'];
+						$addres=$disuserProp['addres'];
+						$cusomer_type=$disuserProp['cusomer_type'];
+						
+					}    
+echo json_encode(array(
+				"statusCode"=>200,
+				"name"=>$name,
+				"lat"=>$lat,
+				"lng"=>$lng,
+				"addres"=>$addres,
+				"cusomer_type"=>$cusomer_type,
+			));	
+	
+		break;
+		
+		
+		
 }
 ?>

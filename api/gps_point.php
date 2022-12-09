@@ -6,15 +6,19 @@ include_once('../main.php');
 $gps=$_POST['gps'];
 $lat=$_POST['lat'];
 $lng=$_POST['lng'];
-$username=$_POST['username'];
-$password1=$_POST['password'];
+$token=$_POST['token'];
 
 //Check username and password
 				
-				$password = md5($password1);
 				$student = new ManageStudents();
-				$counts = $student->LoginStudent($username,$password);
+				$counts = $student->UserTokenchek($token);
 if($counts==1){
+	$counts5 = $student->Getuserfromtoken($token);
+	
+	 foreach($counts5 as $disuserProp)
+					{
+					$username=$disuserProp['uusername'];
+					}
 $fee=new ManageFees();
 $userPayments = $fee->Addgpspoint($username,$gps,$lat,$lng);
 

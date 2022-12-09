@@ -23,6 +23,14 @@ function UsetTwoFactorupdate($mobile)
  $values = array($mobile); $query->execute($values); $counts = $query->rowCount(); return $counts; } 
  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function Useraddtoken($token,$username)
+ { global $table_prefix; 
+ $query = $this->link->prepare("UPDATE `".$table_prefix."users` SET `token`=? WHERE `uusername`=?");
+ $values = array($token,$username); $query->execute($values); $counts = $query->rowCount(); return $counts; } 
+ 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
  function autveruserinsert($tre,$tre2,$uusername)
  { global $table_prefix; 
  $query = $this->link->prepare("UPDATE `".$table_prefix."users` SET `autver`=? , `aut_time_add`=? WHERE `uusername`=?");
@@ -45,13 +53,23 @@ function UsetTwoFactorupdate($mobile)
 
  function GetStudenuusername($username) { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `".$table_prefix."users` WHERE `uusername`=?");
 
- $values = array($uusername);
+ $values = array($username);
  $query->execute($values);
  $counts = $query->rowCount();
  if($counts==1) { $result = $query->fetchAll(); return $result; } 
  else { return $counts; } } 
 
  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ function Getuserfromtoken($token) { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `".$table_prefix."users` WHERE `token`=?");
+
+ $values = array($token);
+ $query->execute($values);
+ $counts = $query->rowCount();
+ if($counts==1) { $result = $query->fetchAll(); return $result; } 
+ else { return $counts; } } 
+
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
  
@@ -82,6 +100,14 @@ function GetUserinvestlistcron($query1) { global $table_prefix; $tids=implode(',
  $values = array($username,$password); $query->execute($values); $counts = $query->rowCount();
  return $counts; }
  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ 
+ function UserTokenchek($token)
+{ global $table_prefix; $query = $this->link->prepare("SELECT * FROM `".$table_prefix."users` WHERE `token`=?");
+ $values = array($token); $query->execute($values); $counts = $query->rowCount();
+ return $counts; }
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 

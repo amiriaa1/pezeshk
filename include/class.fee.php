@@ -21,6 +21,15 @@ function Addgpspoint($username,$gps,$lat,$lng)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+function Addmissions($idd,$type,$status,$name,$addr,$lat,$lng,$comment,$promoter)
+ { global $table_prefix;
+ $query = $this->link->prepare("INSERT INTO `nim_missions` (`custumerid`,`missions_type`,`status`,`custumernama`,`custumeraddr`,`custumerlat`,`custumerlng`,`acomment`,`promoter`) VALUES (?,?,?,?,?,?,?,?,?) ");
+
+ $values = array($idd,$type,$status,$name,$addr,$lat,$lng,$comment,$promoter);
+ $query->execute($values); $counts = $query->rowCount();
+ return $counts; }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 function GetcustomersList($query) { global $table_prefix;
  $query = $this->link->query("SELECT * FROM `nim_customers` $query");
@@ -28,8 +37,35 @@ function GetcustomersList($query) { global $table_prefix;
  return $result; }
  
  
- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  function GEtmissionsapi($promoter) { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `nim_missions` WHERE `promoter`='00' OR `promoter`=? ");
+
+ $values = array($promoter);
+ $query->execute($values);
+ $counts = $query->rowCount();
+ $result = $query->fetchAll();
+ if($counts==1) { $result = $query->fetchAll(); return $result; } 
+ else { return $result; } } 
  
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ function GetcustomersListapi($query) { global $table_prefix;
+ $query = $this->link->query("SELECT name AS name , lat AS lat ,lng AS lng,addres AS address , cusomer_type AS type FROM `nim_customers` $query");
+ $counts = $query->rowCount(); $result = $query->fetchAll();
+ return $result; }
+ 
+ 
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  function Getcustomerformission($idd) { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `".$table_prefix."customers` WHERE `aid`=?");
+
+ $values = array($idd);
+ $query->execute($values);
+ $counts = $query->rowCount();
+ if($counts==1) { $result = $query->fetchAll(); return $result; } 
+ else { return $counts; } } 
+
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 	}
 
 

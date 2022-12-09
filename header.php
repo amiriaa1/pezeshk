@@ -127,9 +127,9 @@ if($system_settings["maintenance"]==1)
 	
 		
 			<li><a href="centerpoint"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>ثبت  مرکز</a></li>
+				<li><a href="centerpoint_list"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>لیست مرکز ها</a></li>
 				
-				
-		
+		<li><a href="mission"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>ثبت ماموریت</a></li>
 	
 		
 				

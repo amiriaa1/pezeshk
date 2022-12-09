@@ -3,12 +3,15 @@
 include_once('../main.php');
 
 
-$name=$_POST['name'];
-$lat=$_POST['lat'];
-$lng=$_POST['lng'];
-$cutomerstype=$_POST['type'];
-$addres=$_POST['address'];
-
+            $idd=$_POST['id'];
+		    $name=$_POST['name'];
+			$lat=$_POST['lat'];
+			$lng=$_POST['lng'];
+		    $addr=$_POST['addr'];
+			
+			$comment=$_POST['comment'];
+			$type=1;
+			$status=0;
 $token=$_POST['token'];
 
 //Check username and password
@@ -17,16 +20,16 @@ $token=$_POST['token'];
 				$student = new ManageStudents();
 				$counts = $student->UserTokenchek($token);
 if($counts==1){
-	
 	$counts5 = $student->Getuserfromtoken($token);
 	
 	 foreach($counts5 as $disuserProp)
 					{
-					$submitby=$disuserProp['uusername'];
+					$promoter=$disuserProp['uusername'];
 					}
 	
+	
 $fee=new ManageFees();
-$userPayments = $fee->Addcustomers($name,$lat,$lng,$addres,$cutomerstype,$submitby);
+$userPayments = $fee->Addmissions($idd,$type,$status,$name,$addr,$lat,$lng,$comment,$promoter);
 
 if($userPayments==1){
 			echo json_encode(array(
@@ -39,7 +42,7 @@ if($userPayments==1){
 			
 				echo json_encode(array(
 				"statusCode"=>201,
-				"formatted_data"=>"false"
+				"formatted_data"=>"Done"
 			));	
 			
 		}
