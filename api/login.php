@@ -3,7 +3,7 @@
 include_once('../main.php');
 
 
-
+echo'<meta charset="utf-8">';
 $username=$_POST['username'];
 $password1=$_POST['password'];
 //Check username and password
@@ -33,7 +33,7 @@ foreach($disuserList as $disuserProp)
 				"token"=>$token,
 				"name"=>$ufaname,
 				"wallet"=>$mainwallet
-	                       ));	
+	                       ),JSON_UNESCAPED_UNICODE);		
 }
 
 else{
@@ -41,7 +41,7 @@ else{
 	echo json_encode(array(
 				"statusCode"=>510,
 				"massage"=>"cant get token"
-	));	
+	),JSON_UNESCAPED_UNICODE);		
 	
 }
 
@@ -50,8 +50,9 @@ else{
 	
 	echo json_encode(array(
 				"statusCode"=>320,
-				"massage"=>"username or pass is not correct"
-	));	
+				"massage"=>"نام کاربری یا رمز عبور اشتباه است"
+				
+	),JSON_UNESCAPED_UNICODE);	
 	
 }
 ?>
