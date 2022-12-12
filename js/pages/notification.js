@@ -11,38 +11,38 @@ $(function () {
         $(this).parents(".myadmin-alert").fadeToggle(350);
         return false;
     });
-    /* Click to close */
-    $(".myadmin-alert-click").click(function(event) {
+    /* onload to close */
+    $(".myadmin-alert-onload").onload(function(event) {
         $(this).fadeToggle(350);
         return false;
     });
-    $(".showtop").click(function() {
+    $(".showtop").onload(function() {
         $(".alerttop").fadeToggle(350);
     });
-    $(".showtop2").click(function() {
+    $(".showtop2").onload(function() {
         $(".alerttop2").fadeToggle(350);
     });
     /** Alert Position Bottom  **/
-    $(".showbottom").click(function() {
+    $(".showbottom").onload(function() {
         $(".alertbottom").fadeToggle(350);
     });
-    $(".showbottom2").click(function() {
+    $(".showbottom2").onload(function() {
         $(".alertbottom2").fadeToggle(350);
     });
     /** Alert Position Top Left  **/
-    $("#showtopleft").click(function() {
+    $("#showtopleft").onload(function() {
         $("#alerttopleft").fadeToggle(350);
     });
     /** Alert Position Top Right  **/
-    $("#showtopright").click(function() {
+    $("#showtopright").onload(function() {
         $("#alerttopright").fadeToggle(350);
     });
     /** Alert Position Bottom Left  **/
-    $("#showbottomleft").click(function() {
+    $("#showbottomleft").onload(function() {
         $("#alertbottomleft").fadeToggle(350);
     });
     /** Alert Position Bottom Right  **/
-    $("#showbottomright").click(function() {
+    $("#showbottomright").onload(function() {
         $("#alertbottomright").fadeToggle(350);
     });
 	

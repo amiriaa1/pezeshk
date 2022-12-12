@@ -11,6 +11,18 @@ function Addcustomers($name,$lat,$lng,$addres,$cutomerstype,$submitby)
  return $counts; }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+function Addcustomersapproval($name,$lat,$lng,$addres,$cutomerstype,$submitby,$approve)
+ { global $table_prefix;
+ $query = $this->link->prepare("INSERT INTO `nim_customers_add_app` (`name`,`lat`,`lng`,`addres`,`cusomer_type`,`submitby`,`approve`) VALUES (?,?,?,?,?,?,?) ");
+
+ $values = array($name,$lat,$lng,$addres,$cutomerstype,$submitby,$approve);
+ $query->execute($values); $counts = $query->rowCount();
+ return $counts; }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 function Addgpspoint($username,$gps,$lat,$lng)
  { global $table_prefix;
  $query = $this->link->prepare("INSERT INTO `marketer_gps` (`ausername`,`gps`,`lat`,`lng`) VALUES (?,?,?,?) ");
@@ -37,7 +49,23 @@ function GetcustomersList($query) { global $table_prefix;
  return $result; }
  
  
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function GetcustomersListapproval($query) { global $table_prefix;
+ $query = $this->link->query("SELECT * FROM `nim_customers_add_app` $query");
+ $counts = $query->rowCount(); $result = $query->fetchAll();
+ return $result; }
+ 
+ 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function Deletecustomerapp($id)
+ { global $table_prefix; $query = $this->link->prepare("DELETE FROM `nim_customers_add_app` WHERE `aid`=?");
+ $values = array($id); $query->execute($values); $counts = $query->rowCount(); if($counts==1) return 1; else return $counts; } 
+ 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   function GEtmissionsapi($promoter) { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `nim_missions` WHERE `promoter`='00' OR `promoter`=? ");
 
  $values = array($promoter);
@@ -61,6 +89,33 @@ function GetcustomersList($query) { global $table_prefix;
  $values = array($status,$user,$id); $query->execute($values); $counts = $query->rowCount(); return $counts; }
 
  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ function customerappupdate($id)
+ { global $table_prefix; $query = $this->link->prepare("UPDATE `nim_customers_add_app` SET `approve`=1 WHERE `aid`=?");
+ $values = array($id); $query->execute($values); $counts = $query->rowCount(); return $counts; } 
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ 
+ function GetmaWalletList($submitby)
+ { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `nim_users` WHERE `uusername`=?"); $values = array($submitby);
+ $query->execute($values); $result = $query->fetchAll(); return $result; } 
+
+   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   
+function WalletUpdate($sum,$submitby)
+ { global $table_prefix; $query = $this->link->prepare("UPDATE `".$table_prefix."users` SET `mainwallet`=? WHERE `uusername`=?");
+ $values = array($sum,$submitby); $query->execute($values); $counts = $query->rowCount(); return $counts; }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function GetUserPayments($uid2) { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `".$table_prefix."user_payments` WHERE `uid`=?");
+ $values = array($uid2); $query->execute($values); $result = $query->fetchAll(); return $result; }
+
+
+
+function AddUserPayment($uid,$uppayment,$upgateway,$uptrack_code,$upcomment,$walletacc) { global $table_prefix; $now = gmdate("Y-m-d H:i:s"); $query = $this->link->prepare("INSERT INTO `".$table_prefix."user_payments` (`uid`,`uppayment`,`upgateway`,`uptrack_code`,`update`,`upcomment`,`walletacc`) VALUES (?,?,?,?,?,?,?) "); $values = array($uid,$uppayment,$upgateway,$uptrack_code,$now,$upcomment,$walletacc); $query->execute($values); $counts = $query->rowCount(); return $counts;}
+
+   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  
  function Getmissionslistbyid($id) { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `nim_missions` WHERE `aid`=?");
 

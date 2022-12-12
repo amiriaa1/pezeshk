@@ -26,12 +26,13 @@ if($counts==1){
 					}
 	
 $fee=new ManageFees();
-$userPayments = $fee->Addcustomers($name,$lat,$lng,$addres,$cutomerstype,$submitby);
+$approve=0;
+$userPayments = $fee->Addcustomersapproval($name,$lat,$lng,$addres,$cutomerstype,$submitby,$approve);
 
 if($userPayments==1){
 			echo json_encode(array(
 				"statusCode"=>200,
-				"formatted_address"=>$name
+				"massage"=>"تااید شد در انتظار برسی مدیر"
 			));	
 		
 		}
