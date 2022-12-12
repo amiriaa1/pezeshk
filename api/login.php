@@ -40,7 +40,7 @@ else{
 	
 	echo json_encode(array(
 				"statusCode"=>510,
-				"massage"=>"cant get token"
+				"massage"=>"امکان دریافت توکن نیست"
 	),JSON_UNESCAPED_UNICODE);		
 	
 }

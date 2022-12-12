@@ -34,16 +34,16 @@ $userPayments = $fee->Addmissions($idd,$type,$status,$name,$addr,$lat,$lng,$comm
 if($userPayments==1){
 			echo json_encode(array(
 				"statusCode"=>200,
-				"formatted_address"=>$name
-			));	
+				"massage"=>"ثبت شد"
+			),JSON_UNESCAPED_UNICODE);	
 		
 		}
 		else{
 			
 				echo json_encode(array(
 				"statusCode"=>201,
-				"formatted_data"=>"Done"
-			));	
+				"massage"=>"مشکلی در ثبت بوجود آمده است"
+			),JSON_UNESCAPED_UNICODE);	
 			
 		}
 
@@ -54,7 +54,7 @@ else{
 	echo json_encode(array(
 				"statusCode"=>320,
 				"massage"=>"نام کاربری صحیح نیست"
-	));	
+	),JSON_UNESCAPED_UNICODE);
 	
 }
 ?>

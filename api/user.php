@@ -29,7 +29,7 @@ $counts5 = $student->Getuserfromtoken($token);
 				"username"=>$username,
 				"name"=>$ufaname,
 				"wallet"=>$mainwallet,
-	));	
+	),JSON_UNESCAPED_UNICODE);	
 	
 
 }
@@ -38,8 +38,8 @@ else{
 	
 	echo json_encode(array(
 				"statusCode"=>320,
-				"massage"=>"user problem"
-	));	
+			"massage"=>"نام کاربری صحیح نیست"
+	),JSON_UNESCAPED_UNICODE);
 	
 }
 ?>

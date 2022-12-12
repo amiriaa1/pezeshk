@@ -25,16 +25,16 @@ $userPayments = $fee->Addgpspoint($username,$gps,$lat,$lng);
 if($userPayments==1){
 			echo json_encode(array(
 				"statusCode"=>200,
-				"formatted_data"=>"Done"
-			));	
+				"massage"=>"Done"
+			),JSON_UNESCAPED_UNICODE);		
 		
 		}
 		else{
 			
 				echo json_encode(array(
 				"statusCode"=>201,
-				"formatted_address"=>"no sql"
-			));	
+				"massage"=>"import problem"
+			),JSON_UNESCAPED_UNICODE);		
 			
 		}
 
@@ -44,8 +44,8 @@ else{
 	
 	echo json_encode(array(
 				"statusCode"=>320,
-				"massage"=>"user problem"
-	));	
+				"massage"=>"نام کاربری صحیح نیست"
+	),JSON_UNESCAPED_UNICODE);		
 	
 }
 ?>

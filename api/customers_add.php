@@ -33,15 +33,15 @@ if($userPayments==1){
 			echo json_encode(array(
 				"statusCode"=>200,
 				"massage"=>"تااید شد در انتظار برسی مدیر"
-			));	
+			),JSON_UNESCAPED_UNICODE);		
 		
 		}
 		else{
 			
 				echo json_encode(array(
 				"statusCode"=>201,
-				"formatted_data"=>"false"
-			));	
+				"massage"=>"در ثبت دیتا مشکلی به وجود آمده است"
+			),JSON_UNESCAPED_UNICODE);		
 			
 		}
 
@@ -52,7 +52,7 @@ else{
 	echo json_encode(array(
 				"statusCode"=>320,
 				"massage"=>"نام کاربری صحیح نیست"
-	));	
+	),JSON_UNESCAPED_UNICODE);		
 	
 }
 ?>

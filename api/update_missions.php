@@ -42,7 +42,7 @@ echo'
 		echo json_encode(array(
 				"statusCode"=>1,
 				"massage"=>"ماموریت برای شما ثبت شد شروع کنید"
-			));	
+			),JSON_UNESCAPED_UNICODE);	
 		
 			
 		}
@@ -52,7 +52,7 @@ echo'
 		echo json_encode(array(
 				"statusCode"=>5,
 				"massage"=>"این ماموریت در وضعیت انتخاب نیست"
-			));	
+			),JSON_UNESCAPED_UNICODE);	
 	}
 		
 		
