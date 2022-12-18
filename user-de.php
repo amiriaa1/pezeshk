@@ -1,5 +1,5 @@
 <?php
-$login_needed=0;
+$login_needed=1;
 include_once('main.php');
 include_once('header.php');
 $student = new ManageStudents();

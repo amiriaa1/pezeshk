@@ -1,6 +1,6 @@
 <?php
 
-$login_needed=1;
+$login_needed=0;
 include_once('main.php');
 include_once('header.php');
 $student = new ManageStudents();
@@ -83,14 +83,10 @@ echo'
 							
 							echo '
 							<td style="width:120px;" class="small">
-									<b>referralwallet</b>
+									<b>token</b>
 							</td>';
 							
-							echo '
-							<td style="width:120px;" class="small">
-									<b>incomewallet</b>
-							</td>';
-							
+						
 							
 					
 					echo '
@@ -150,13 +146,10 @@ echo'
 							
 							
 						echo '<td style="text-align:left;">
-							'.$discountProp['referralwallet'].'
+							'.$discountProp['token'].'
 							</td>';
 								
-						echo '<td style="text-align:left;">
-							'.$discountProp['incomewallet'].'
-							</td>';
-								
+						
 					
 							
 							
@@ -188,7 +181,7 @@ echo'
 						</div>
 						</div>
 
-
+</div>
 
 ';
 

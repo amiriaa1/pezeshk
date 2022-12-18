@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $(".tst1").on("click", function () {
+    $(".tst1").on("onload", function () {
         $.toast({
             heading: 'Welcome to my Crypto Admin',
             text: 'Use the predefined ones, or specify a custom position object.',
@@ -12,7 +12,7 @@ $(document).ready(function () {
 
     });
 
-    $(".tst2").on("click", function () {
+    $(".tst2").on("onload", function () {
         $.toast({
             heading: 'Welcome to my Crypto Admin',
             text: 'Use the predefined ones, or specify a custom position object.',
@@ -24,7 +24,7 @@ $(document).ready(function () {
         });
 
     });
-    $(".tst3").on("click", function () {
+    $(".tst3").on("onload", function () {
         $.toast({
             heading: 'Welcome to my Crypto Admin',
             text: 'Use the predefined ones, or specify a custom position object.',
@@ -37,7 +37,7 @@ $(document).ready(function () {
 
     });
 
-    $(".tst4").on("click", function () {
+    $(".tst4").on("onload", function () {
         $.toast({
             heading: 'Welcome to my Crypto Admin',
             text: 'Use the predefined ones, or specify a custom position object.',

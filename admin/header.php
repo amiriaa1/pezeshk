@@ -126,21 +126,17 @@ echo'
 
 	  <!-- Sample menu definition -->
 	  <ul id="main-menu" class="sm sm-blue">
-		<li><a href="index"><i class="icon-Layout-4-blocks"><span class="path1"></span><span class="path2"></span></i>Dashboard</a></li>
-		<li><a href="deposit"><i class="icon-Equalizer"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>deposit</a>
-			
-		</li>
-		<li><a href="invest-pack"><i class="icon-Chart-pie"><span class="path1"></span><span class="path2"></span></i>invest pack</a>
-			
-		</li>
+		<li><a href="index"><i class="icon-Layout-4-blocks"><span class="path1"></span><span class="path2"></span></i>داشبور</a></li>
 	
 		
-		<li><a href="wallet-ttp"><i class="icon-Repeat"><span class="path1"></span><span class="path2"></span></i>wallet add</a></li> 
-		<li><a href="withdraw"><i class="icon-Repeat"><span class="path1"></span><span class="path2"></span></i>withdraw</a></li> 
-		
-		<li><a href="user"><i class="icon-Repeat"><span class="path1"></span><span class="path2"></span></i>user list</a></li> 
-		
-		
+			<li><a href="centerpoint"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>ثبت  مرکز</a></li>
+				<li><a href="centerpoint_list"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>لیست مرکز ها</a></li>
+				
+		<li><a href="mission"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>ثبت ماموریت</a></li>
+		<li><a href="centerpoint_approve"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>تایید مرکز</a></li>
+		<li><a href="user"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>کاربران</a></li>
+		<li><a href="admins"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>مدیران</a></li>
+				
 		
 		</li>
 	  </ul>
