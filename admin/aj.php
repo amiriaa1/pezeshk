@@ -13,9 +13,11 @@ switch($_REQUEST['op'])
 	$lng= $_REQUEST['lng'];
 	$name= $_REQUEST['name'];
 	$submitby= $_REQUEST['submitby'];
+	$tell= $_REQUEST['tell'];
+	$city= $_REQUEST['city'];
 	
 $fee=new ManageFees();
-$userPayments = $fee->Addcustomers($name,$lat,$lng,$addres,$cutomerstype,$submitby);
+$userPayments = $fee->Addcustomers($name,$lat,$lng,$addres,$cutomerstype,$tell,$submitby,$city);
 if($userPayments==1){
 			echo json_encode(array(
 				"statusCode"=>200,

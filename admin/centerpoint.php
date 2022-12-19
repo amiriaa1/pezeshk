@@ -5,6 +5,10 @@ include_once('main.php');
 include_once('header.php');
 
 		
+$fee=new ManageFees();
+$query="ORDER BY `city`.`id` DESC";
+$userPayments = $fee->Getcitylist($query);	
+
 echo'
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -71,12 +75,14 @@ echo'
 								var lat = $("#lat").val();
 								var lng = $("#lng").val();
 								var name = $("#name").val();
+								var tell = $("#tell").val();
 								var submitby = $("#submitby").val();
+								var city = $("#city").val();
 								if(addres!=""){
 								$.ajax({
 								    url: "aj.php",
 								    type: "POST",
-								    data: {op:"vfr",addres:addres,cutomerstype:cutomerstype,lat:lat,lng:lng,name:name,submitby:submitby},
+								    data: {op:"vfr",addres:addres,cutomerstype:cutomerstype,lat:lat,lng:lng,name:name,submitby:submitby,tell:tell,city:city},
 									dataType: "json",
 								    success: function(data){
 							
@@ -138,8 +144,8 @@ echo'
 								
 									<label for="cutomerstype">نوع مشتری</label>
 		<select  name="cutomerstype" id="cutomerstype"  class="form-control select2 w-p100" >
-						  <option selected="selected" name="cutomerstype" id="cutomerstype" value="1">0</option>
-						  <option selected="selected" name="cutomerstype" id="cutomerstype" value="2">1</option>
+						  <option selected="selected" name="cutomerstype" id="cutomerstype" value="1">1</option>
+						  <option selected="selected" name="cutomerstype" id="cutomerstype" value="2">2</option>
 						  
 						</select>
 
@@ -160,6 +166,11 @@ echo'
 							</div>
 						
 						
+						
+						
+						
+						
+						
 							<div class="col-md-6">
 								<div class="form-group">
 								<h5>نام<span class="text-danger">*</span></h5>
@@ -175,10 +186,49 @@ echo'
 						
 							<div class="col-md-6">
 								<div class="form-group">
+								<h5>شهر<span class="text-danger">*</span></h5>
+								<div class="controls">
+				
+				<select  name="city" id="city"  class="form-control select2 w-p100" >
+				
+				
+				';
+				foreach($userPayments as $disuserProp)
+					{
+						
+						echo'<option selected="selected" name="cutomerstype" id="cutomerstype" value="'.$disuserProp['id'].'">'.$disuserProp['name'].'</option>';
+						
+					}
+				echo'</select>
+								</div>
+							</div>
+
+							</div>
+						
+						
+						
+							
+						
+							<div class="col-md-6">
+								<div class="form-group">
+								<h5>تلفن<span class="text-danger">*</span></h5>
+								<div class="controls">
+				
+				<input type="text" name="tell" id="tell"  class="form-control" required data-validation-required-message="This field is required">
+								</div>
+							</div>
+
+							</div>
+						
+						
+						
+						
+							<div class="col-md-6">
+								<div class="form-group">
 								<h5>عرض جغرافیایی <span class="text-danger">*</span></h5>
 									<div class="controls">
 											<input type="text" name="lng" disabled="disabled" id="lng" class="form-control" required data-validation-required-message="This field is required">
-			<input type="hidden" name="submitby" id="submitby" value="'.$uusername.'" >
+			<input type="hidden" name="submitby" id="submitby" value="'.$ausername.'" >
 
 										<br>
 										<div class="text-xs-right">

@@ -135,6 +135,7 @@ echo'
 		<li><a href="mission"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>ثبت ماموریت</a></li>
 		<li><a href="centerpoint_approve"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>تایید مرکز</a></li>
 		<li><a href="user"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>کاربران</a></li>
+		<li><a href="add-user"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>افزودن کاربر</a></li>
 		<li><a href="admins"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>مدیران</a></li>
 				
 		

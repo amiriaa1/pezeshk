@@ -2,11 +2,11 @@
 
 
  
-function Addcustomers($name,$lat,$lng,$addres,$cutomerstype,$submitby)
+function Addcustomers($name,$lat,$lng,$addres,$cutomerstype,$tell,$submitby,$city)
  { global $table_prefix;
- $query = $this->link->prepare("INSERT INTO `nim_customers` (`name`,`lat`,`lng`,`addres`,`cusomer_type`,`submitby`) VALUES (?,?,?,?,?,?) ");
+ $query = $this->link->prepare("INSERT INTO `nim_customers` (`name`,`lat`,`lng`,`addres`,`cusomer_type`,`tell`,`submitby`,`city`) VALUES (?,?,?,?,?,?,?,?) ");
 
- $values = array($name,$lat,$lng,$addres,$cutomerstype,$submitby);
+ $values = array($name,$lat,$lng,$addres,$cutomerstype,$tell,$submitby,$city);
  $query->execute($values); $counts = $query->rowCount();
  return $counts; }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -48,6 +48,28 @@ function GetcustomersList($query) { global $table_prefix;
  $counts = $query->rowCount(); $result = $query->fetchAll();
  return $result; }
  
+ 
+
+function Getcitylist($query) { global $table_prefix;
+ $query = $this->link->query("SELECT * FROM `city` $query");
+ $counts = $query->rowCount(); $result = $query->fetchAll();
+ return $result; }
+ 
+ 
+function Gettypelist($query) { global $table_prefix;
+ $query = $this->link->query("SELECT * FROM `nim_customers_type` $query");
+ $counts = $query->rowCount(); $result = $query->fetchAll();
+ return $result; }
+ 
+ 
+ function Getcitybyid($ccid) { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `city` WHERE `id`=? ");
+
+ $values = array($ccid);
+ $query->execute($values);
+ $counts = $query->rowCount();
+ $result = $query->fetchAll();
+ if($counts==1) { $result = $query->fetchAll(); return $result; } 
+ else { return $result; } } 
  
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -8,11 +8,11 @@ class ManageStudents
  { global $table_prefix; $db_connection = new dbConnection(); $this->link = $db_connection->connect(); return $this->link; }
  
  
-function AddStudent($aid,$uusername,$upass,$uactive,$uexpiration_date,$ufaname,$uemail,$umobile,$ucomment,$ureg_date)
+function AddStudent($aid,$uusername,$pass,$uactive,$name,$city,$type,$tell)
  { global $table_prefix;
- $query = $this->link->prepare("INSERT INTO `".$table_prefix."users` (`aid`,`uusername`,`upass`,`uactive`,`uexpiration_date`,`ufaname`,`uemail`,`umobile`,`ucomment`,`ureg_date`) VALUES (?,?,?,?,?,?,?,?,?,?) ");
+ $query = $this->link->prepare("INSERT INTO `".$table_prefix."users` (`aid`,`uusername`,`upass`,`uactive`,`ufaname`,`city`,`type`,`umobile`) VALUES (?,?,?,?,?,?,?,?) ");
 
- $values = array($aid,$uusername,$upass,$uactive,$uexpiration_date,$ufaname,$uemail,$umobile,$ucomment,$ureg_date);
+ $values = array($aid,$uusername,$pass,$uactive,$name,$city,$type,$tell);
  $query->execute($values); $counts = $query->rowCount();
  return $counts; }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -165,7 +165,10 @@ echo'
 									<b>cusomer_type</b>
 							</td>';
 							
-						
+							echo '
+							<td style="width:120px;" class="small">
+									<b>شهر</b>
+							</td>';
 							
 							
 				
@@ -209,8 +212,15 @@ echo'
 				<span>'.$disuserProp['cusomer_type'].'</span>
 							</td>';
 							
-						
+						$ccid=$disuserProp['city'];
 					
+
+
+						echo '<td style="text-align:'.$align1.';">
+				<span>'.$ccid.'</span>
+							</td>';
+							
+						
 					
 						
 								
