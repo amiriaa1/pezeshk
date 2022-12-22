@@ -4,10 +4,7 @@ include_once('../main.php');
 
 
             $idd=$_POST['id'];
-		    $name=$_POST['name'];
-			$lat=$_POST['lat'];
-			$lng=$_POST['lng'];
-		    $addr=$_POST['addr'];
+		    
 			
 			$comment=$_POST['comment'];
 			$type=1;
@@ -25,12 +22,27 @@ if($counts==1){
 	 foreach($counts5 as $disuserProp)
 					{
 					$promoter=$disuserProp['uusername'];
+					$cytyuser=$disuserProp['city'];
 					}
+					
+		$fee=new ManageFees();	
+$query="WHERE aid=$idd";		
+		$custumerslist = $fee->GetcustomersList($query);
 	
+	 foreach($custumerslist as $custumerslistprob)
+					{
+					$name=$custumerslistprob['name'];
+					$lat=$custumerslistprob['lat'];
+					$lng=$custumerslistprob['lng'];
+					$addr=$custumerslistprob['addres'];
+					$custumercity=$custumerslistprob['city'];
+					}
+					
+	if($cytyuser==$custumercity){
 	
 $fee=new ManageFees();
 $userPayments = $fee->Addmissions($idd,$type,$status,$name,$addr,$lat,$lng,$comment,$promoter);
-
+}
 if($userPayments==1){
 			echo json_encode(array(
 				"statusCode"=>200,
