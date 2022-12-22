@@ -24,7 +24,7 @@ $fee=new ManageFees();
 			
 $disuserList = $fee->GEtmissionsapi($promoter);
 
-echo json_encode($disuserList);  
+echo json_encode($disuserList,JSON_UNESCAPED_UNICODE);  
 							
 
 	

@@ -15,7 +15,7 @@ $fee=new ManageFees();
 $query = "ORDER BY `nim_customers`.`aid` ASC";			
 $disuserList = $fee->GetcustomersListapi($query);
 
-echo json_encode($disuserList);  
+echo json_encode($disuserList,JSON_UNESCAPED_UNICODE);  
 							
 						
 

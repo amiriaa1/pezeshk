@@ -28,11 +28,7 @@ if($counts==1){
 					}
 
 
-echo'
-<br>'.$id.'<br>
-<br>'.$user.'<br>
-<br>'.$status.'<br>
-';
+
 
 	if($promoter=='00' OR $promoter==$user){
 		if($status2==0 OR $status2==1){

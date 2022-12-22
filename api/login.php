@@ -3,7 +3,6 @@
 include_once('../main.php');
 
 
-echo'<meta charset="utf-8">';
 $username=$_POST['username'];
 $password1=$_POST['password'];
 //Check username and password
