@@ -27,7 +27,7 @@ File: scss
 @import url(icons/weather-icons/css/weather-icons.min.css);
 @import url(icons/iconsmind/style.css);
 @import url(icons/icomoon/style.css);
-@import url(../assets/vendor_components/animate/animate.css);
+@import url(../../assets/vendor_components/animate/animate.css);
 html {
   height: 100%;
   font-size: 14px; }

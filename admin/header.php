@@ -22,15 +22,8 @@ echo'
 
     <title>' . $system_title . '</title>
     
-	<!-- Bootstrap 4.0-->
-	<link rel="stylesheet" href="assets/vendor_components/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="assets/vendor_components/bootstrap/dist/css/bootstrap.min.css">
 	
-	<!-- bootstrap wysihtml5 - text editor -->
-	<link rel="stylesheet" href="assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css">
-    
-	<!--amcharts -->
-	<link href="assets/vendor_components/www.amcharts.com/lib/3/plugins/export/export.css" rel="stylesheet" type="text/css" /> 
-	  
 	<!-- Data Table-->
 	<link rel="stylesheet" type="text/css" href="assets/vendor_components/datatable/datatables.min.css"/>
 	
@@ -38,8 +31,8 @@ echo'
 	<link rel="stylesheet" href="css/horizontal-menu.css">
 	<link rel="stylesheet" href="css/style.css">
 	
-	<!-- Crypto Admin skins -->
-	<link rel="stylesheet" href="css/skin_color.css">
+	<!-- Admin skins -->
+	<link rel="stylesheet" href="css/skin_color.css">	
 
      
   </head>
@@ -137,6 +130,8 @@ echo'
 		<li><a href="user"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>کاربران</a></li>
 		<li><a href="add-user"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>افزودن کاربر</a></li>
 		<li><a href="admins"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>مدیران</a></li>
+		<li><a href="add-factor"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>فاکتور فروش</a></li>
+		<li><a href="add-product"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>افزودن محصول</a></li>
 				
 		
 		</li>

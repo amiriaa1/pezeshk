@@ -40,6 +40,7 @@ $(function () {
 	  'ordering'    : true,
 	  'info'        : true,
 	  'autoWidth'   : false,
+	  'retrieve'    : false,
 	});
 	
 

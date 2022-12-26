@@ -4,15 +4,9 @@ $login_needed=0;
 include_once('main.php');
 include_once('header.php');
 
-$student = new ManageStudents();	
 $fee=new ManageFees();
-$query="ORDER BY `city`.`id` DESC";
-$userPayments = $fee->Getcitylist($query);
-
-	
-$query="";
-$userPayments2 = $fee->Gettypelist($query);
-
+$query="ORDER BY `nim_product`.`name` ASC";
+$userPayments = $fee->Getproduct($query);	
 
 $uusername=$_POST['uusername'];
 $pass=$_POST['pass'];
@@ -43,11 +37,79 @@ if($student->UsernameAvailability($uusername)==0)
 }
 echo'
 
+<div class="box-body p-15">						
+						<div class="table-responsive">
+							<table id="tickets" class="table mt-0 table-hover no-wrap table-borderless" data-page-size="10">
+								<thead>
+									<tr>
+										<th>کد</th>
+										<th>نام</th>
+										<th>نوع</th>
+										<th>تعداد</th>
+										<th>نوع تعداد</th>
+										<th>مبلغ فروش</th>
+										<th>مبلغ خرید</th>
+										<th>اضافه به فاکتور</th>
+									</tr>
+								</thead>
+								
+								<tbody>
+								';
+								
+								foreach($userPayments as $disuserProp2)
+					{
+						
+			echo'
+			
+			<tr>
+										<td>'.$disuserProp2["pid"].'</td>
+										<td>
+											<a href="product-veiw?id='.$disuserProp2["pid"].'">'.$disuserProp2["name"].'</a>
+										</td>
+										<td>'.$disuserProp2["type"].'</td>
+										<td>'.$disuserProp2["count"].'</td>
+										<td><span class="badge badge-success">'.$disuserProp2["zaribcount"].'</span> </td>
+										<td>'.$disuserProp2["price"].'</td>
+										<td>'.$disuserProp2["buyprice"].'</td>
+										<td>
+											<a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-original-title="add"><i class="mdi-arrow-down-bold"></i></a>
+										</td>
+									</tr>
+			
+			
+			
+			';
+						
+					}
+								echo'
+									
+									
+									
+								
+								</tbody>
+							</table>
+						</div>
+					</div>
+		
+<!-- ./wrapper -->
 
-
+	<!-- js -->
+	<script src="js/vendors.min.js"></script>
+	
+	<!-- This is data table -->
+    <script src="assets/vendor_components/datatable/datatables.min.js"></script>
+	<script src="js/pages/data-table.js"></script>
+	
+<div class="box box-default">
+			<div class="box-header with-border">
+			  <h4 class="box-title">لیست فاکتور</h4>
+			 		
+			</div>
+			</div>
+	
  <div class="box box-default">
 			<div class="box-header with-border">
-			  <h4 class="box-title">افزودن کاربر</h4>
+			  <h4 class="box-title">افزودن فاکتور</h4>
 			 		
 			</div>
 			
@@ -61,15 +123,6 @@ echo'
 					
 					<section>
 						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-								
-									<label for="addres">نام کاربری</label>
-<input type="text" name="uusername"  id="uusername" class="form-control" required data-validation-required-message="This field is required">
-<br> رمز
-<input type="text" name="pass"  id="pass" class="form-control" required data-validation-required-message="This field is required">
-									</div>
-							</div>
 							
 							
 							<div class="col-md-6">
@@ -171,12 +224,16 @@ include_once('footer.php');
 
 
 echo'
-	 <!-- Sweet-Alert  -->
-    <script src="assets/vendor_components/sweetalert/sweetalert.min.js"></script>
-    <script src="assets/vendor_components/sweetalert/jquery.sweet-alert.custom.js"></script>
-	
-	<!-- js -->
+<!-- js -->
 	<script src="js/vendors.min.js"></script>
+	
+	<!-- This is data table -->
+    <script src="assets/vendor_components/datatable/datatables.min.js"></script>
+	<script src="js/pages/data-table.js"></script>
+	
+	
+	  <script src="assets/vendor_components/nestable/jquery.nestable.js"></script>
+	<script src="js/pages/nestable.js"></script>
 	
 	<!-- Crypto Admin App -->
 	<script src="js/jquery.smartmenus.js"></script>
@@ -185,10 +242,6 @@ echo'
 	
 	<!-- Crypto Admin for demo purposes -->
 	<script src="js/demo.js"></script>
-	<!-- Bootstrap 4.0-->
-	
-    
-   
 </body>
 </html>
 

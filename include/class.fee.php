@@ -10,6 +10,16 @@ function Addcustomers($name,$lat,$lng,$addres,$cutomerstype,$tell,$submitby,$cit
  $query->execute($values); $counts = $query->rowCount();
  return $counts; }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+function Addproduct($name,$type,$mojodi,$mojodizarib,$saleprice,$buyprice,$site)
+ { global $table_prefix;
+ $query = $this->link->prepare("INSERT INTO `nim_product` (`name`,`type`,`count`,`zaribcount`,`price`,`buyprice`,`siteview`) VALUES (?,?,?,?,?,?,?) ");
+
+ $values = array($name,$type,$mojodi,$mojodizarib,$saleprice,$buyprice,$site);
+ $query->execute($values); $counts = $query->rowCount();
+ return $counts; }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 
@@ -61,6 +71,11 @@ function Gettypelist($query) { global $table_prefix;
  $counts = $query->rowCount(); $result = $query->fetchAll();
  return $result; }
  
+ 
+ function Getproduct($query) { global $table_prefix;
+ $query = $this->link->query("SELECT * FROM `nim_product` $query");
+ $counts = $query->rowCount(); $result = $query->fetchAll();
+ return $result; }
  
  function Getcitybyid($ccid) { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `city` WHERE `id`=? ");
 
