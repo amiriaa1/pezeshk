@@ -8,34 +8,73 @@ $fee=new ManageFees();
 $query="ORDER BY `nim_product`.`name` ASC";
 $userPayments = $fee->Getproduct($query);	
 
-$uusername=$_POST['uusername'];
-$pass=$_POST['pass'];
-$type=$_POST['type'];
-$name=$_POST['name'];
-$city=$_POST['city'];
-$tell=$_POST['tell'];
-$uactive=1;
-if(isset($_POST['uusername'])){
-if($student->UsernameAvailability($uusername)==0)
-				{
-					
-					$error = $uusername_title._USER_SIDE_USERNAME_IS_RESERVED;
-					echo $error;
-				}
-				else
-				{
-						$counts = $student->AddStudent(1,$uusername,md5($pass),$uactive,$name,$city,$type,$tell);
-				}
-				if($counts==1)
-					{
-						$success = _YOU_SUCCESSFULLY_SIGNED_UP;
-						echo $success;
-						}
+if((!isset($_GET['id']))){
 
 
+if($_POST['add_factor']!=="ساخت شماره فاکتور"){
+	
+	echo'
+	<center>
+	<form id="myForm" method="post" action="">
+ 
+  <input type="submit" name="add_factor" id="add_factor" value="ساخت شماره فاکتور">
+</form></center>
+	';
+	
 	
 }
+else{
+	
+$factor_num=rand(999999,999999999);
+$fee=new ManageFees();
+$userPayments2 = $fee->Addfactorbase($factor_num);	
+	
+	if($userPayments2==1){
+		
+		
+		echo "<script>
+		
+		window.location.href='add-factor?id=$factor_num';
+		
+		
+		</script>";
+		
+	}
+
+
+}
+}
 echo'
+
+
+
+<script type="text/javascript">
+							function showStudentProp()
+							{
+							
+								var x = "51";
+								
+							$.ajax({
+							
+								    url: "aj.php",
+								    type: "POST",
+								    data: {op:"makefacror",x:x},
+									dataType: "json",
+								    success: function(data){
+									
+									     window.location.href = "/test";
+									
+									                        }
+							      });
+							
+							
+							
+							}
+						</script>
+						
+
+
+
 
 <div class="box-body p-15">						
 						<div class="table-responsive">
@@ -72,7 +111,8 @@ echo'
 										<td>'.$disuserProp2["price"].'</td>
 										<td>'.$disuserProp2["buyprice"].'</td>
 										<td>
-											<a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-original-title="add"><i class="mdi-arrow-down-bold"></i></a>
+										<input type="submit" name="add_factor" onclick="showStudentProp()" id="add_factor" value="Submit">
+
 										</td>
 									</tr>
 			
@@ -88,18 +128,21 @@ echo'
 								
 								</tbody>
 							</table>
+							<script src="js/vendors.min.js"></script>
+	                        <script src="assets/vendor_components/datatable/datatables.min.js"></script>
+                         	<script src="js/pages/data-table.js"></script>
+	                        
+	
+	
+	  
+	
 						</div>
 					</div>
 		
-<!-- ./wrapper -->
 
-	<!-- js -->
-	<script src="js/vendors.min.js"></script>
 	
-	<!-- This is data table -->
-    <script src="assets/vendor_components/datatable/datatables.min.js"></script>
-	<script src="js/pages/data-table.js"></script>
-	
+
+
 <div class="box box-default">
 			<div class="box-header with-border">
 			  <h4 class="box-title">لیست فاکتور</h4>
@@ -224,16 +267,8 @@ include_once('footer.php');
 
 
 echo'
-<!-- js -->
-	<script src="js/vendors.min.js"></script>
-	
-	<!-- This is data table -->
-    <script src="assets/vendor_components/datatable/datatables.min.js"></script>
-	<script src="js/pages/data-table.js"></script>
-	
-	
-	  <script src="assets/vendor_components/nestable/jquery.nestable.js"></script>
-	<script src="js/pages/nestable.js"></script>
+
+
 	
 	<!-- Crypto Admin App -->
 	<script src="js/jquery.smartmenus.js"></script>

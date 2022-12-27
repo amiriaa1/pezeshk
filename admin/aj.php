@@ -4,8 +4,13 @@
 include_once('main.php');
 switch($_REQUEST['op'])
 {
-	
-	
+
+    case "makefacror":
+
+
+
+        
+        break;
 		case "vfr":
 	$addres= $_REQUEST['addres'];
 	$cutomerstype= $_REQUEST['cutomerstype'];

@@ -20,7 +20,14 @@ function Addproduct($name,$type,$mojodi,$mojodizarib,$saleprice,$buyprice,$site)
  return $counts; }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+function Addfactorbase($factor_num)
+ { global $table_prefix;
+ $query = $this->link->prepare("INSERT INTO `nim_factors` (`factor_num`) VALUES (?) ");
 
+ $values = array($factor_num);
+ $query->execute($values); $counts = $query->rowCount();
+ return $counts; }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 function Addcustomersapproval($name,$lat,$lng,$addres,$cutomerstype,$submitby,$approve)
