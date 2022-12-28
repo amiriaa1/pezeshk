@@ -23,11 +23,11 @@ if($counts==1){
 $fee=new ManageFees();
 			
 $disuserList = $fee->GEtmissionsapi($promoter);
-
+$disuserList2=json_encode($disuserList,JSON_UNESCAPED_UNICODE); 
 echo json_encode($disuserList,JSON_UNESCAPED_UNICODE);  
 							
 
-	
+	$userPayments5 = $fee->Addlog('view_missions',$post,$disuserList2);
 
 }
 
