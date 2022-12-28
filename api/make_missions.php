@@ -10,7 +10,7 @@ include_once('../main.php');
 			$type=1;
 			$status=0;
 $token=$_POST['token'];
-
+$post=json_encode($_POST);
 //Check username and password
 				
 			
@@ -56,7 +56,7 @@ if($userPayments==1){
 				"statusCode"=>201,
 				"massage"=>"مشکلی در ثبت بوجود آمده است"
 			),JSON_UNESCAPED_UNICODE);	
-			
+			$userPayments5 = $fee->Addlog('make_missions',$post,'مشکلی در ثبت بوجود آمده است');
 		}
 
 }
