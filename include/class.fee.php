@@ -50,6 +50,17 @@ function Addgpspoint($username,$gps,$lat,$lng)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+function Addlog($url,$post,$back)
+ { global $table_prefix;
+ $query = $this->link->prepare("INSERT INTO `logs` (`url`,`psot`,`back`) VALUES (?,?,?) ");
+
+ $values = array($url,$post,$back);
+ $query->execute($values); $counts = $query->rowCount();
+ return $counts; }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 function Addmissions($idd,$type,$status,$name,$addr,$lat,$lng,$comment,$promoter)
  { global $table_prefix;
  $query = $this->link->prepare("INSERT INTO `nim_missions` (`custumerid`,`missions_type`,`status`,`custumernama`,`custumeraddr`,`custumerlat`,`custumerlng`,`acomment`,`promoter`) VALUES (?,?,?,?,?,?,?,?,?) ");

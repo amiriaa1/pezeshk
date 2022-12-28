@@ -48,7 +48,7 @@ if($userPayments==1){
 				"statusCode"=>200,
 				"massage"=>"ثبت شد"
 			),JSON_UNESCAPED_UNICODE);	
-		
+		$userPayments5 = $fee->Addlog('make_missions',$post,'ثبت شد');
 		}
 		else{
 			

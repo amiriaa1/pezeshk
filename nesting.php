@@ -2,18 +2,9 @@
 
 	
 	include_once('main.php');
-	
-	$idd=7;
-	$fee = new ManageFees();
-	
-	
-$disuserList = $fee->Getcustomerformission($idd);
-	echo'salam';
-	foreach($disuserList as $disuserProp)
-					{
-						$name=$disuserProp['name'];
-						
-						echo $name;
-					} 
-					echo'salam';
+	$fee=new ManageFees();
+	$url='test';
+	$post='test';
+	$back='test';
+$userPayments5 = $fee->Addlog($url,$post,$back);
 ?>

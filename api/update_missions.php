@@ -7,7 +7,7 @@ include_once('../main.php');
 		    $id=$_POST['id'];
 			
 $token=$_POST['token'];
-
+$post=json_encode($_POST);
 //Check username and password
 				
 			$fee=new ManageFees();
@@ -39,7 +39,7 @@ if($counts==1){
 				"statusCode"=>1,
 				"massage"=>"ماموریت برای شما ثبت شد شروع کنید"
 			),JSON_UNESCAPED_UNICODE);	
-		
+		$userPayments5 = $fee->Addlog('update_missions',$post,'ماموریت ثبت شد');
 			}
 			if($status==2){
 		echo json_encode(array(
