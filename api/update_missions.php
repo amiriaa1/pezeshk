@@ -34,13 +34,20 @@ if($counts==1){
 		if($status2==0 OR $status2==1){
 			
 			$userPayments = $fee->missionsupdate($status,$user,$id);
-		
+		if($status==1){
 		echo json_encode(array(
 				"statusCode"=>1,
 				"massage"=>"ماموریت برای شما ثبت شد شروع کنید"
 			),JSON_UNESCAPED_UNICODE);	
 		
-			
+			}
+			if($status==2){
+		echo json_encode(array(
+				"statusCode"=>2,
+				"massage"=>"ماموریت با موفقیت پایان یافت خسته نباشید"
+			),JSON_UNESCAPED_UNICODE);	
+		
+			}
 		}
 		
 		else{
