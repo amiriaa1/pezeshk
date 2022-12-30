@@ -36,14 +36,16 @@ if($counts==1){
 			$userPayments = $fee->missionsupdate($status,$user,$id);
 		if($status==1){
 		echo json_encode(array(
-				"statusCode"=>1,
+				"statusCode"=>200,
+				"finalstatusCode"=>1,
 				"massage"=>"ماموریت برای شما ثبت شد شروع کنید"
 			),JSON_UNESCAPED_UNICODE);	
 		$userPayments5 = $fee->Addlog('update_missions',$post,'ماموریت ثبت شد');
 			}
 			if($status==2){
 		echo json_encode(array(
-				"statusCode"=>2,
+				"statusCode"=>200,
+				"finalstatusCode"=>2,
 				"massage"=>"ماموریت با موفقیت پایان یافت خسته نباشید"
 			),JSON_UNESCAPED_UNICODE);	
 		
@@ -53,7 +55,8 @@ if($counts==1){
 		else{
 		
 		echo json_encode(array(
-				"statusCode"=>5,
+				"statusCode"=>200,
+				"finalstatusCode"=>5,
 				"massage"=>"این ماموریت در وضعیت انتخاب نیست"
 			),JSON_UNESCAPED_UNICODE);	
 	}
@@ -64,6 +67,7 @@ if($counts==1){
 	else{
 		
 		echo json_encode(array(
+				"statusCode"=>200,
 				"statusCode"=>7,
 				"massage"=>"این ماموریت تویط کاربر دیگری دریافت شده است"
 			));	
