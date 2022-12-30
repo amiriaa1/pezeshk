@@ -70,7 +70,7 @@ if($counts==1){
 				"statusCode"=>200,
 				"statusCode"=>7,
 				"massage"=>"این ماموریت تویط کاربر دیگری دریافت شده است"
-			));	
+			),JSON_UNESCAPED_UNICODE);	
 	}
 	
 
@@ -85,7 +85,7 @@ else{
 	echo json_encode(array(
 				"statusCode"=>320,
 				"massage"=>"نام کاربری صحیح نیست"
-	));	
+	),JSON_UNESCAPED_UNICODE);	
 	
 }
 ?>

@@ -132,7 +132,7 @@ function Deletecustomerapp($id)
  
  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  function GetcustomersListapi($query) { global $table_prefix;
- $query = $this->link->query("SELECT name AS name , lat AS lat ,lng AS lng,addres AS address , cusomer_type AS type FROM `nim_customers` $query");
+ $query = $this->link->query("SELECT aid AS id ,name AS name , lat AS lat ,lng AS lng,addres AS address , cusomer_type AS type FROM `nim_customers` $query");
  $counts = $query->rowCount(); $result = $query->fetchAll();
  return $result; }
  
