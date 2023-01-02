@@ -121,7 +121,7 @@ function Deletecustomerapp($id)
  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  function GEtmissionsapi($promoter) { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `nim_missions`  status!=2 & promoter='00' OR status!=2 & promoter=?");
+  function GEtmissionsapi($promoter) { global $table_prefix; $query = $this->link->prepare("SELECT * FROM WHERE `nim_missions`  status!=2 & promoter='00' OR status!=2 & promoter=?");
 
  $values = array($promoter);
  $query->execute($values);
