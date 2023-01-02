@@ -1,5 +1,5 @@
 <?php
-$dbhost = 'localhost';
+$dbhost = '94.101.189.95';
 $dbname = 'pezeshk';
 $dbuname = 'pezeshk';
 $dbpass = 'pezeshk';

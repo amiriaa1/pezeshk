@@ -121,15 +121,7 @@ function Deletecustomerapp($id)
  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  function GEtmissionsapi($promoter) { global $table_prefix; $query = $this->link->prepare("SELECT * FROM  `nim_missions` WHERE  status!=2 AND promoter='00' OR status!=2 AND promoter=?");
 
- $values = array($promoter);
- $query->execute($values);
- $counts = $query->rowCount();
- $result = $query->fetchAll();
- if($counts==1) { $result = $query->fetchAll(); return $result; } 
- else { return $result; } } 
- 
  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  function GetcustomersListapi($query) { global $table_prefix;
  $query = $this->link->query("SELECT aid AS id ,name AS name , lat AS lat ,lng AS lng,addres AS address , cusomer_type AS type FROM `nim_customers` $query");
@@ -154,6 +146,11 @@ function Deletecustomerapp($id)
  
  function GetmaWalletList($submitby)
  { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `nim_users` WHERE `uusername`=?"); $values = array($submitby);
+ $query->execute($values); $result = $query->fetchAll(); return $result; } 
+ 
+ 
+  function GEtmissionsapi($promoter)
+ { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `nim_missions` WHERE status NOT LIKE '2' AND promoter LIKE '00' OR status NOT LIKE '2'  AND promoter=?"); $values = array($promoter);
  $query->execute($values); $result = $query->fetchAll(); return $result; } 
 
    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
