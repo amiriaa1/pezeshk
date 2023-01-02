@@ -3,8 +3,18 @@
 	
 	include_once('main.php');
 	$fee=new ManageFees();
-	$url='test';
-	$post='test';
-	$back='test';
-$userPayments5 = $fee->Addlog($url,$post,$back);
+	
+	
+$query="WHERE aid=1";		
+		$custumerslist = $fee->GetcustomersList($query);
+	
+	 foreach($custumerslist as $custumerslistprob)
+					{
+					$name=$custumerslistprob['name'];
+					$lat=$custumerslistprob['lat'];
+					$lng=$custumerslistprob['lng'];
+					$addr=$custumerslistprob['addres'];
+					$custumercity=$custumerslistprob['city'];
+					}
+					echo $name;
 ?>
