@@ -20,6 +20,17 @@ function Addproduct($name,$type,$mojodi,$mojodizarib,$saleprice,$buyprice,$site)
  return $counts; }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+    function Addproducttype($name,$site,$pic)
+    { global $table_prefix;
+        $query = $this->link->prepare("INSERT INTO `nim_product_type` (`name`,`show_on`,`pic`) VALUES (?,?,?) ");
+
+        $values = array($name,$site,$pic);
+        $query->execute($values); $counts = $query->rowCount();
+        return $counts; }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 function Addfactorbase($factor_num)
  { global $table_prefix;
  $query = $this->link->prepare("INSERT INTO `nim_factors` (`factor_num`) VALUES (?) ");
@@ -88,7 +99,12 @@ function Gettypelist($query) { global $table_prefix;
  $query = $this->link->query("SELECT * FROM `nim_customers_type` $query");
  $counts = $query->rowCount(); $result = $query->fetchAll();
  return $result; }
- 
+
+
+    function Gettypelist2($query) { global $table_prefix;
+        $query = $this->link->query("SELECT * FROM `nim_product_type` $query");
+        $counts = $query->rowCount(); $result = $query->fetchAll();
+        return $result; }
  
  function Getproduct($query) { global $table_prefix;
  $query = $this->link->query("SELECT * FROM `nim_product` $query");

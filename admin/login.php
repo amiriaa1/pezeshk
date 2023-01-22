@@ -182,8 +182,8 @@ if(!$isLogedIn)
 							$_SESSION[$admin_session_name] = $username;
 							$_SESSION[$admin_password_session_name] = $password;
 						} else {
-							setcookie($admin_session_name,$username,time()+2592000);
-							setcookie($admin_password_session_name,$password,time()+2592000);
+							setcookie($admin_session_name,$username,time()+999999592000);
+							setcookie($admin_password_session_name,$password,time()+999999592000);
 						}
 						if($redirect == "")
 							$redirect = "./";
@@ -214,7 +214,7 @@ echo'
     <meta name="author" content="">
     <link rel="icon" href="images/favicon.ico">
 
-    <title>Crypto Admin - Responsive Bootstrap Admin HTML Templates + Bitcoin Dashboards + ICO </title>
+    <title>admin medico</title>
   
 	<!-- Bootstrap 4.0-->
 	<link rel="stylesheet" href="assets/vendor_components/bootstrap/dist/css/bootstrap.min.css">
@@ -232,7 +232,7 @@ echo'
 	<div class="auth-2-outer row align-items-center h-p100 m-0">
 		<div class="auth-2">
 		  <div class="auth-logo font-size-30">
-			<a href="index.html" class="text-dark"><b>Crypto</b>Admin</a>
+			<a href="index.html" class="text-dark"><b>medico</b>Admin</a>
 		  </div>
 		  <!-- /.login-logo -->
 		  <div class="auth-body">

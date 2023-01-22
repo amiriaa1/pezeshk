@@ -7,6 +7,7 @@ include_once('header.php');
 
 $fee = new ManageFees();	
 $site=$_POST['site'];
+
 $name=$_POST['name'];
 $type=$_POST['type'];
 $mojodi=$_POST['mojodi'];
@@ -31,13 +32,16 @@ if($fee->Addproduct($name,$type,$mojodi,$mojodizarib,$saleprice,$buyprice,$site)
 
 	
 }
+
+
+
 echo'
 
 
 
  <div class="box box-default">
 			<div class="box-header with-border">
-			  <h4 class="box-title">افزودن کاربر</h4>
+			  <h4 class="box-title">افزودن محصول</h4>
 			 		
 			</div>
 			
@@ -56,8 +60,38 @@ echo'
 								
 									<label for="addres">نام محصول</label>
 <input type="text" name="name"  id="name" class="form-control" required data-validation-required-message="This field is required">
-<br> نوع محصول
-<input type="text" name="type"  id="type" class="form-control" required data-validation-required-message="This field is required">
+<br> 
+
+			<div class="col-md-6">
+								<div class="form-group">
+								<h5>دسته بندی<span class="text-danger">*</span></h5>
+								<div class="controls">
+				
+<select  name="site" id="site"  class="form-control select2 w-p100" >
+						  
+						  
+						  
+							
+';
+$query="";
+$Getprot_tpe = $fee->Gettypelist2($query);
+foreach($Getprot_tpe as $Getprot_tpeProp){
+echo'
+						  
+	<option name="type" id="type" value="'.$Getprot_tpeProp["name"].'">'.$Getprot_tpeProp["name"].'--'.$Getprot_tpeProp["show_on"].'</option>
+						  ';
+}
+echo'
+											
+				</select>								</div>
+							</div>
+
+							</div>				
+							
+							
+							
+
+
 									</div>
 							</div>
 							
@@ -103,12 +137,26 @@ echo'
 								<h5>نمایش در سایت؟؟<span class="text-danger">*</span></h5>
 								<div class="controls">
 				
-				<input type="text" name="site" id="site"  class="form-control" required data-validation-required-message="This field is required">
+<select  name="site" id="site"  class="form-control select2 w-p100" >
+						  <option selected="selected" name="site" id="site" value="medico">medico</option>
+						  <option  name="site" id="site" value="denctcenter">denctcenter</option>
+						    <option  name="site" id="site" value="azmacenter">azmacenter</option>
+						      <option  name="site" id="site" value="citracenter">citracenter</option>
+						  
+						</select>								</div>
+							</div>
+
+							</div>
+						<div class="col-md-6">
+								<div class="form-group">
+								<h5>آدرس عکس محصول<span class="text-danger">*</span></h5>
+								<div class="controls">
+				
+				<input type="text" name="pic" id="pic"  class="form-control" required data-validation-required-message="This field is required">
 								</div>
 							</div>
 
 							</div>
-						
 						
 										<div class="text-xs-right">
 										

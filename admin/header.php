@@ -132,7 +132,7 @@ echo'
 		<li><a href="admins"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>مدیران</a></li>
 		<li><a href="add-factor"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>فاکتور فروش</a></li>
 		<li><a href="add-product"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>افزودن محصول</a></li>
-				
+		<li><a href="add-product-type"><i class="icon-Chart-line"><span class="path1"></span><span class="path2"></span></i>افزودن دسته بندی</a></l	
 		
 		</li>
 	  </ul>
