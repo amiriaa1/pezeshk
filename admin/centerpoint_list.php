@@ -121,7 +121,7 @@ var lng="'.$lng.'";
 
 		var marker = L.marker(['.$lat.','.$lng.'],
   {alt: "'.$test.'"},{icon: myIcon}).addTo(map) 
-  .bindPopup("'.$test.', '.$addres.'");
+  .bindPopup("'.$test.', 123");
 	
 							
 							
@@ -130,7 +130,7 @@ var lng="'.$lng.'";
 }
 echo'
 		
-
+'.$lat.'<br>'.$lng.'
  <div class="box box-default">
 			<div class="box-header with-border">
 			  <h4 class="box-title">لیست مشتری های ثبت شده</h4>
